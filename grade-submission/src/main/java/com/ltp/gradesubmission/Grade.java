@@ -22,6 +22,7 @@ public class Grade {
         this.subject = subject;
         this.score = score;
     }
+
     public Grade() {
     }
 
