@@ -21,4 +21,9 @@ public class GradeController {
         model.addAttribute("grades", studentGrades);
         return "grades";
     }
+    @GetMapping("/")
+    public String getForm(Model model) {
+        model.addAttribute("grade", new Grade("Hermoine", "Potions", "A"));
+        return "form";
+    }
 }

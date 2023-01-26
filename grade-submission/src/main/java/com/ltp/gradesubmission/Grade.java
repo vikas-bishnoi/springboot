@@ -22,6 +22,8 @@ public class Grade {
         this.subject = subject;
         this.score = score;
     }
+    public Grade() {
+    }
 
     public void setName(String name) {
         this.name = name;
