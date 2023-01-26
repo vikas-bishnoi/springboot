@@ -34,7 +34,12 @@ public class GradeController {
 
     @PostMapping("/handle-submit")
     public String submitGrade(Grade grade) {
-        studentGrades.add(grade);
+        int index = getGradeIndex(grade.getName());
+        if(index == -1) {
+            studentGrades.add(grade);
+        } else {
+            studentGrades.set(index, grade);
+        }
         return "redirect:/grades";
     }
 
