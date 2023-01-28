@@ -36,11 +36,22 @@ class GradeSubmissionApplicationTests {
 	@Test
 	public void testSuccessfulSubmission() throws Exception {
 		RequestBuilder request = MockMvcRequestBuilders.post("/handle-submit")
-			.param("name", "harry")
-			.param("subject", "Potions").param("score", "C");
+				.param("name", "harry")
+				.param("subject", "Potions").param("score", "C");
 
 		mockMvc.perform(request)
-			.andExpect(status().is3xxRedirection())
-			.andExpect(redirectedUrl("/grades"));
+				.andExpect(status().is3xxRedirection())
+				.andExpect(redirectedUrl("/grades"));
+	}
+
+	@Test
+	public void testUnsuccessfulSubmission() throws Exception {
+		RequestBuilder request = MockMvcRequestBuilders.post("/handle-submit")
+				.param("name", "harry")
+				.param("subject", "Potions").param("score", "N");
+
+		mockMvc.perform(request)
+				.andExpect(status().is2xxSuccessful())
+				.andExpect(view().name("form"));
 	}
 }
