@@ -1,5 +1,6 @@
 package com.ltp.gradesubmission.repository;
 
+import com.ltp.gradesubmission.Constants;
 import com.ltp.gradesubmission.Grade;
 
 import java.util.ArrayList;
@@ -23,7 +24,4 @@ public class GradeRepository {
     public List<Grade> getGrades() {
         return studentGrades;
     }
-
-
-
 }
