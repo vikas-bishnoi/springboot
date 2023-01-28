@@ -70,4 +70,13 @@ public class GradeServiceTest {
         gradeService.submitGrade(newGrade);
         verify(gradeRepository, times(1)).addGrade(newGrade);
     }
+
+    @Test
+    public void submitUpdateGradeTest() {
+        Grade grade = new Grade("Harry", "Potions", "C");
+        when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
+
+        gradeService.submitGrade(grade);
+        verify(gradeRepository, times(1)).updateGrade(grade, 0);
+    }
 }
