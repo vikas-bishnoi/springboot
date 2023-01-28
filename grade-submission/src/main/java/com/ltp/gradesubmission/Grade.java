@@ -7,8 +7,9 @@ import java.util.UUID;
 public class Grade {
     @NotBlank(message = "Name cannot be blank")
     private String name;
-    @NotBlank(message = "Subjet cannot be blank")
+    @NotBlank(message = "Subject cannot be blank")
     private String subject;
+    @Score(message = "Score must be a letter grade between A+ and F")
     private String score;
     private String ID;
 
