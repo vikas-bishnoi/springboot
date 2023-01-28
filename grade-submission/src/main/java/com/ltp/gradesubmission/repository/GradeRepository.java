@@ -1,6 +1,5 @@
 package com.ltp.gradesubmission.repository;
 
-import com.ltp.gradesubmission.Constants;
 import com.ltp.gradesubmission.Grade;
 import org.springframework.stereotype.Repository;
 
