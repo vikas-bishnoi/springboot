@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GradeServiceTest {
@@ -59,5 +59,15 @@ public class GradeServiceTest {
         Grade result = gradeService.getGradeById(id);
 
         assertEquals(grade, result);
+    }
+
+    @Test
+    public void submitAddGradeTest() {
+        Grade grade = new Grade("Harry", "Potions", "C");
+        when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
+
+        Grade newGrade = new Grade("Ron", "Chamrs", "B");
+        gradeService.submitGrade(newGrade);
+        verify(gradeRepository, times(1)).addGrade(newGrade);
     }
 }
