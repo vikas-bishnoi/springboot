@@ -54,4 +54,14 @@ class GradeSubmissionApplicationTests {
 				.andExpect(status().is2xxSuccessful())
 				.andExpect(view().name("form"));
 	}
+
+	@Test
+	public void testGetGrades() throws Exception {
+		RequestBuilder request = MockMvcRequestBuilders.get("/grades");
+
+		mockMvc.perform(request)
+			.andExpect(status().is2xxSuccessful())
+			.andExpect(view().name("grades"))
+			.andExpect(model().attributeExists("grades"));
+	}
 }
