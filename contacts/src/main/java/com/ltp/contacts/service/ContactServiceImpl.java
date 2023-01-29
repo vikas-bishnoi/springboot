@@ -3,6 +3,7 @@ package com.ltp.contacts.service;
 import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import com.ltp.contacts.pojo.Contact;
@@ -30,7 +31,11 @@ public class ContactServiceImpl implements ContactService {
         contactRepository.updateContact(index, contact);
     }
 
-
+    @Override
+    public void deleteContact(String id) {
+        int index = findIndexById(id);
+        contactRepository.deleteContact(index);
+    }
 
     private int findIndexById(String id) {
         return IntStream.range(0, contactRepository.getContacts().size())
