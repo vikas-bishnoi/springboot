@@ -1,5 +1,6 @@
 package com.ltp.contacts.service;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,11 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public Contact getContactById(String id) {
         return contactRepository.getContact(findIndexById(id));
+    }
+
+    @Override
+    public List<Contact> getContacts() {
+        return contactRepository.getContacts();
     }
     
     @Override
