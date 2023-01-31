@@ -1,6 +1,9 @@
 package com.ltp.gradesubmission.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,4 +29,9 @@ public class Course {
     @NonNull
     @Column(name="description", nullable = false)
     private String description;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Grade> grades;
 }
