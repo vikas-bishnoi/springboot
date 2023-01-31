@@ -46,7 +46,7 @@ public class GradeController {
 
     @GetMapping("/student/{studentId}")
     public ResponseEntity<List<Grade>> getStudentGrades(@PathVariable Long studentId) {
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getStudentGrades(studentId), HttpStatus.OK);
     }
 
     @GetMapping("/course/{courseId}")
