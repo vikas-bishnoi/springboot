@@ -1,14 +1,17 @@
 package com.ltp.gradesubmission.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+
 import lombok.*;
 
 @Entity
 @Table(name = "student")
 @Getter
 @Setter
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 public class Student {
 
@@ -18,8 +21,14 @@ public class Student {
     private Long id;
 
     @Column(name="name")
+    @NonNull
     private String name;
 
     @Column(name="birth_date")
+    @NonNull
     private LocalDate birthDate;
+
+    @OneToMany(mappedBy = "student")
+    @JsonIgnore
+    private List<Grade> grades;
 }

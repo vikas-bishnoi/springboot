@@ -21,10 +21,10 @@ public class GradeSubmissionApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Student[] students = new Student[] {
-				new Student(1L, "Harry", LocalDate.parse("1980-07-31")),
-				new Student(2L, "Ron", LocalDate.parse("1980-03-01")),
-				new Student(3L, "Hermoine", LocalDate.parse("1979-09-19")),
-				new Student(4L, "Neville", LocalDate.parse("1980-07-30"))
+				new Student("Harry", LocalDate.parse("1980-07-31")),
+				new Student("Ron", LocalDate.parse("1980-03-01")),
+				new Student("Hermoine", LocalDate.parse("1979-09-19")),
+				new Student("Neville", LocalDate.parse("1980-07-30"))
 		};
 
 		for (Student student : students)
