@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface GradeRepository extends CrudRepository<Grade, Long> {
-    Grade findByStudentIdAndCourseId(Long studentId, Long courseId);
+    Optional<Grade> findByStudentIdAndCourseId(Long studentId, Long courseId);
 }
