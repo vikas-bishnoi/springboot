@@ -72,7 +72,7 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public List<Grade> getAllGrades() {
-        return null;
+        return (List<Grade>) gradeRepository.findAll();
     }
 
 }
